@@ -3,19 +3,33 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
+    {#
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    {% endif %}#}
+    <main class="container">
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        <section class="card-login">
+            <h1 class="card-login-title">Capsule app</h1>
+            <p class="card-login-subtitle">Sign into capsule app !</p>
+            <form action="{{ path('login') }}" method="post" class="card-login-form">
+                <div class="form-group">
+                    <label for="username">Enter your email</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" />
+                <div class="form-group">
+                    <label for="password">Enter your password</label>
+                    <input type="password" id="password" name="_password" />
+                </div>
 
-        <input type="hidden" name="_dashboard" value="/dashboard" />
+                <input type="hidden" name="_dashboard" value="/dashboard" />
 
-        <button type="submit">login</button>
-    </form>
+                <div class="form-group button-group">
+                    <a href="{{ path('register') }}" class="btn btn-text">REGISTER</a>
+                    <button type="submit" class="btn btn-contained">LOGIN</button>
+                </div>
+            </form>
+        </section>
+    </main>
 {% endblock %}

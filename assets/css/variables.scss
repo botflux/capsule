@@ -1,0 +1,24 @@
+
+$card-border-radius: 2px;
+
+$background-colors: (
+        normal: #303030,
+        dark-1: #707070,
+        dark-2: #212121
+);
+
+$colors: (
+  principal: #92CBC5
+);
+
+@function background ($name) {
+  @return map_get($background-colors, $name);
+}
+
+@function color ($name) {
+  @return map_get($colors, $name);
+}
+
+@mixin shadow ($x, $y, $e) {
+  box-shadow: $x $y $e 0 rgba(0, 0, 0, .4);
+}

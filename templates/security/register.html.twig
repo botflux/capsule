@@ -3,10 +3,44 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    {{ form_start(user_form) }}
+<main class="container">
+    <section class="card-login">
+        <h1 class="card-login-title">Capsule app</h1>
+        <p class="card-login-subtitle">Register to capsule app !</p>
+        {{ form_start(user_form, {'attr': {'class': 'card-login-form'}}) }}
 
-    {{ form_widget(user_form) }}
-    <button type="submit">Register</button>
+        <div class="form-group">
+            {{ form_label(user_form.firstName, 'First name') }}
+            {{ form_widget(user_form.firstName) }}
+        </div>
 
-    {{ form_end(user_form) }}
+        <div class="form-group">
+            {{ form_label(user_form.lastName, 'Last name') }}
+            {{ form_widget(user_form.lastName) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(user_form.email, 'Email') }}
+            {{ form_widget(user_form.email) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(user_form.password.first, 'Password') }}
+            {{ form_widget(user_form.password.first) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(user_form.password.second, 'Repeat password') }}
+            {{ form_widget(user_form.password.second) }}
+        </div>
+
+        <div class="form-group button-group">
+            <a href="{{ path('register') }}" class="btn btn-text">LOGIN</a>
+            <button type="submit" class="btn btn-contained">REGISTER</button>
+        </div>
+
+        {{ form_end(user_form) }}
+    </section>
+</main>
+
 {% endblock %}
