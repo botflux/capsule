@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    {{ form_start(user_form) }}
+
+    {{ form_widget(user_form) }}
+    <button type="submit">Register</button>
+
+    {{ form_end(user_form) }}
+{% endblock %}
