@@ -1,6 +1,6 @@
 # TODO
 
-- Mettre en place le système d'authentification avec un utilisateur en mémoire
+- *Mettre en place le système d'authentification avec un utilisateur en mémoire*
 - Mettre en place la base de données
 - Mettre en place les utilisateurs en partant de la base de données
 - Mettre en place le formulaire d'enregistrement
