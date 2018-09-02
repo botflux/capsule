@@ -33,3 +33,7 @@ services:
     App\Service\UserService:
         arguments:
             ['@doctrine.orm.entity_manager', '@security.user_password_encoder.generic']
+
+    App\Service\TimeCapsuleService:
+            arguments:
+                ['@doctrine.orm.entity_manager']

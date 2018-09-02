@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\TimeCapsule;
-use App\Entity\User;
+use App\Entity\TimeCapsuleFragment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method TimeCapsule|null find($id, $lockMode = null, $lockVersion = null)
- * @method TimeCapsule|null findOneBy(array $criteria, array $orderBy = null)
- * @method TimeCapsule[]    findAll()
- * @method TimeCapsule[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TimeCapsuleFragment|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TimeCapsuleFragment|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TimeCapsuleFragment[]    findAll()
+ * @method TimeCapsuleFragment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TimeCapsuleRepository extends ServiceEntityRepository
+class TimeCapsuleFragmentRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, TimeCapsule::class);
+        parent::__construct($registry, TimeCapsuleFragment::class);
     }
+
 //    /**
-//     * @return TimeCapsule[] Returns an array of TimeCapsule objects
+//     * @return TimeCapsuleFragment[] Returns an array of TimeCapsuleFragment objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TimeCapsuleRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TimeCapsule
+    public function findOneBySomeField($value): ?TimeCapsuleFragment
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

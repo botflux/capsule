@@ -7,3 +7,4 @@
 - *Créer les entités en base de données*
 - *Créer des fausses entités*
 - Commencer le front-end
+- Créer les fragments

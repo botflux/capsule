@@ -45,9 +45,15 @@ class User implements UserInterface, \Serializable
      */
     private $ownedTimeCapsules;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TimeCapsuleFragment", mappedBy="author")
+     */
+    private $contributedFragments;
+
     public function __construct()
     {
         $this->ownedTimeCapsules = new ArrayCollection();
+        $this->contributedFragments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -212,6 +218,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($ownedTimeCapsule->getOwner() === $this) {
                 $ownedTimeCapsule->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TimeCapsuleFragment[]
+     */
+    public function getContributedFragments(): Collection
+    {
+        return $this->contributedFragments;
+    }
+
+    public function addContributedFragment(TimeCapsuleFragment $contributedFragment): self
+    {
+        if (!$this->contributedFragments->contains($contributedFragment)) {
+            $this->contributedFragments[] = $contributedFragment;
+            $contributedFragment->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContributedFragment(TimeCapsuleFragment $contributedFragment): self
+    {
+        if ($this->contributedFragments->contains($contributedFragment)) {
+            $this->contributedFragments->removeElement($contributedFragment);
+            // set the owning side to null (unless already changed)
+            if ($contributedFragment->getAuthor() === $this) {
+                $contributedFragment->setAuthor(null);
             }
         }
 

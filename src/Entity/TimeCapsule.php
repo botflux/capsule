@@ -43,6 +43,16 @@ class TimeCapsule
      */
     private $owner;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TimeCapsuleFragment", mappedBy="timeCapsule")
+     */
+    private $fragments;
+
+    public function __construct()
+    {
+        $this->fragments = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,5 +116,41 @@ class TimeCapsule
         $this->owner = $owner;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|TimeCapsuleFragment[]
+     */
+    public function getFragments(): Collection
+    {
+        return $this->fragments;
+    }
+
+    public function addFragment(TimeCapsuleFragment $fragment): self
+    {
+        if (!$this->fragments->contains($fragment)) {
+            $this->fragments[] = $fragment;
+            $fragment->setTimeCapsule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFragment(TimeCapsuleFragment $fragment): self
+    {
+        if ($this->fragments->contains($fragment)) {
+            $this->fragments->removeElement($fragment);
+            // set the owning side to null (unless already changed)
+            if ($fragment->getTimeCapsule() === $this) {
+                $fragment->setTimeCapsule(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString ()
+    {
+        return $this->id.$this->title;
     }
 }
