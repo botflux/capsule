@@ -8,7 +8,8 @@ $background-colors: (
 );
 
 $colors: (
-  principal: #92CBC5
+  primary: #92CBC5,
+  primary-light-opacity: #92CBC520
 );
 
 @function background ($name) {
@@ -21,4 +22,8 @@ $colors: (
 
 @mixin shadow ($x, $y, $e) {
   box-shadow: $x $y $e 0 rgba(0, 0, 0, .4);
+}
+
+@mixin shadow-colored ($x, $y, $e, $color) {
+  box-shadow: $x $y $e 0 $color;
 }

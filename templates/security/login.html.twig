@@ -13,21 +13,35 @@
             <h1 class="card-login-title">Capsule app</h1>
             <p class="card-login-subtitle">Sign into capsule app !</p>
             <form action="{{ path('login') }}" method="post" class="card-login-form">
-                <div class="form-group">
-                    <label for="username">Enter your email</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+                    <input type="text" id="username" class="mdc-text-field__input" name="_username" value="{{ last_username }}" />
+                    <label for="username" class="mdc-floating-label">Email address</label>
+                    <div class="mdc-line-ripple"></div>
+                    <!--<span class="helper-text">Type your email address</span>-->
                 </div>
-
+<!--
                 <div class="form-group">
                     <label for="password">Enter your password</label>
                     <input type="password" id="password" name="_password" />
+                </div>-->
+
+                <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+                    <input type="password" id="password" class="mdc-text-field__input" name="_password" />
+                    <label for="password" class="mdc-floating-label">Password</label>
+                    <div class="mdc-line-ripple"></div>
+                    <!--<span class="helper-text">Type your email address</span>-->
                 </div>
-
                 <input type="hidden" name="_dashboard" value="/dashboard" />
-
-                <div class="form-group button-group">
+{#
+                <div class="button-group">
+                    <button type="submit" class="btn btn-colored btn-raised">LOGIN</button>
                     <a href="{{ path('register') }}" class="btn btn-text">REGISTER</a>
-                    <button type="submit" class="btn btn-contained">LOGIN</button>
+                </div>#}
+                <div class="button-group">
+                    <button class="mdc-button mdc-button--raised button" data-mdc-auto-init="MDCButton">
+                        login
+                    </button>
+                    <a href="{{ path('register') }}" class="mdc-button button-text" data-mdc-auto-init="MDCButton">register</a>
                 </div>
             </form>
         </section>

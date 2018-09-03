@@ -12,3 +12,15 @@ require('../css/app.scss');
 // var $ = require('jquery');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+import mdcAutoInit from '@material/auto-init';
+window.mdcAutoInit = mdcAutoInit;
+
+import {MDCTextField} from '@material/textfield';
+import {MDCRipple} from '@material/ripple';
+
+//const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+mdcAutoInit.register('MDCTextField', MDCTextField);
+mdcAutoInit.register('MDCButton', MDCRipple);
+
+//const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+//mdcAutoInit.register('MDCTextField', MDCTextField);

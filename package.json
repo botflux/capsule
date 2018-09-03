@@ -12,5 +12,10 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production"
+    },
+    "dependencies": {
+        "@material/auto-init": "^0.39.0",
+        "@material/button": "^0.39.1",
+        "@material/textfield": "^0.39.1"
     }
 }

@@ -1,5 +1,7 @@
 @import "reset";
 @import "variables";
+@import "button";
+@import "input";
 
 body {
   background-color: background(normal);
@@ -40,10 +42,10 @@ body {
   height: 100%;
 }
 
-.form-group {
+.form-group {/*
   display: grid;
-  grid-row-gap: 6px;
-
+  grid-row-gap: 6px;*/
+/*
   label {
     font-size: 12px;
     color: rgba(255,255,255,.54);
@@ -60,17 +62,17 @@ body {
 
   input:focus {
     outline: 0;
-  }
+  }*/
 
 }
-
+/*
 .btn-contained {
-  background-color: color(principal);
+  background-color: color(primary);
 }
 
 .btn-text {
   background-color: #00000000;
-  color: color(principal) !important;
+  color: color(primary) !important;
 }
 
 .btn {
@@ -86,10 +88,12 @@ body {
   border-radius: $card-border-radius;
   cursor: pointer;
 }
-
+*/
 .button-group {
+  display: grid;
+  grid-row-gap: 6px;
   margin-top: 8px;
   grid-auto-flow: column;
   grid-column-gap: 8px;
-  justify-content: end;
+  justify-content: start;
 }

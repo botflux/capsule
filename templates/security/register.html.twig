@@ -9,34 +9,39 @@
         <p class="card-login-subtitle">Register to capsule app !</p>
         {{ form_start(user_form, {'attr': {'class': 'card-login-form'}}) }}
 
-        <div class="form-group">
-            {{ form_label(user_form.firstName, 'First name') }}
-            {{ form_widget(user_form.firstName) }}
+        <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+            {{ form_widget(user_form.firstName, {'attr': {'class': 'mdc-text-field__input'}}) }}
+            {{ form_label(user_form.firstName, 'First name', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+            <div class="mdc-line-ripple"></div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(user_form.lastName, 'Last name') }}
-            {{ form_widget(user_form.lastName) }}
+        <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+            {{ form_widget(user_form.lastName, {'attr': {'class': 'mdc-text-field__input'}}) }}
+            {{ form_label(user_form.lastName, 'Last name', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+            <div class="mdc-line-ripple"></div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(user_form.email, 'Email') }}
-            {{ form_widget(user_form.email) }}
+        <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+            {{ form_widget(user_form.email, {'attr': {'class': 'mdc-text-field__input'}}) }}
+            {{ form_label(user_form.email, 'Email address', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+            <div class="mdc-line-ripple"></div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(user_form.password.first, 'Password') }}
-            {{ form_widget(user_form.password.first) }}
+        <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+            {{ form_widget(user_form.password.first, {'attr': {'class': 'mdc-text-field__input'}}) }}
+            {{ form_label(user_form.password.first, 'Password', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+            <div class="mdc-line-ripple"></div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(user_form.password.second, 'Repeat password') }}
-            {{ form_widget(user_form.password.second) }}
+        <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+            {{ form_widget(user_form.password.second, {'attr': {'class': 'mdc-text-field__input'}}) }}
+            {{ form_label(user_form.password.second, 'Repeat password', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+            <div class="mdc-line-ripple"></div>
         </div>
 
-        <div class="form-group button-group">
-            <a href="{{ path('login') }}" class="btn btn-text">LOGIN</a>
-            <button type="submit" class="btn btn-contained">REGISTER</button>
+        <div class="button-group">
+            <button type="submit" class="mdc-button mdc-button--raised button">REGISTER</button>
+            <a href="{{ path('login') }}" class="mdc-button button-text">LOGIN</a>
         </div>
 
         {{ form_end(user_form) }}

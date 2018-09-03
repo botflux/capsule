@@ -14,4 +14,10 @@
             <script src="/build/app.js"></script>
         {% endblock %}
     </body>
+
+    <script>
+        if (window.mdcAutoInit() !== undefined) {
+          window.mdcAutoInit();
+        }
+    </script>
 </html>
