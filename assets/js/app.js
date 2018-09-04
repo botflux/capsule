@@ -21,7 +21,9 @@ import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCList} from "@material/list";
 import {MDCDrawer} from "@material/drawer";
 import {MDCIconToggle} from '@material/icon-toggle';
+import {MDCDialog} from '@material/dialog';
 
+const dialog = new MDCDialog(document.querySelector('#my-mdc-dialog'));
 
 //const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
 mdcAutoInit.register('MDCTextField', MDCTextField);
@@ -44,11 +46,12 @@ try {
   mdcAutoInit.register('MDCToggle', MDCIconToggle);
 } catch (e) {}
 
-//
+try {
+  mdcAutoInit.register('MDCDialog', MDCDialog);
+} catch (e) {}
 
 //const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 //mdcAutoInit.register('MDCTextField', MDCTextField);
-
 
 // search for all capsule in the page thanks to data-capsule-redirect attribute
 // and set a on click listener so when the user click on a capsule he is redirect
@@ -57,4 +60,8 @@ document.querySelectorAll('[data-capsule-redirect]').forEach((el) => {
   el.addEventListener('click', () => {
     window.location = `/capsule/${el.getAttribute('data-capsule-redirect')}`
   });
+});
+
+document.querySelector('[data-link-capsule]').addEventListener('click', () => {
+  dialog.show();
 });

@@ -7,18 +7,15 @@
 @import "layout";
 @import "card";
 @import "typography";
+@import "dialog";
 @import "~@material/theme/mdc-theme";
 @import "~@material/icon-button/mdc-icon-button";
+
 $mdc-theme-background: background(normal);
 /*
 body {
   background-color: background(normal);
 }*/
-
-.test {
-  height: 100px;
-  background-color: red;
-}
 
 .card-login {
   background-color: background(normal);
