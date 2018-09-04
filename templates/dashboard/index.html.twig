@@ -57,12 +57,13 @@
 
                         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                             <div class="mdc-card dashboard-capsule-card">
-                                <div class="mdc-card__primary-action mdc-ripple-upgraded dashboard-capsule-card-primary" data-mdc-auto-init="MDCButton">
+                                <div class="mdc-card__primary-action mdc-ripple-upgraded dashboard-capsule-card-primary" data-mdc-auto-init="MDCButton" data-capsule-redirect="{{ capsule.id }}">
                                     <h3 class="mdc-typography--body1 mdc-typography">{{ capsule.title }}</h3>
                                     <p class="mdc-typography mdc-typography--caption">{{ capsule.description|length < 200 ? capsule.description: capsule.description|slice(0, 197) ~ '...' }}</p>
                                 </div>
                                 <div class="mdc-card__action-icons dashboard-capsule-card-action">
                                     <button class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-icon-toggle material-icons" role="button" aria-pressed="false"
+                                            data-mdc-auto-init="MDCToggle"
                                             aria-label="Add to favorites" tabindex="0"
                                             data-toggle-on='{"label": "Remove from favorites", "content": "favorite"}'
                                             data-toggle-off='{"label": "Add to favorites", "content": "favorite_border"}'>
