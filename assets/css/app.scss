@@ -2,9 +2,21 @@
 @import "variables";
 @import "button";
 @import "input";
+@import "app-bar";
+@import "drawer";
+@import "layout";
+@import "card";
+@import "~@material/theme/mdc-theme";
 
+$mdc-theme-background: background(normal);
+/*
 body {
   background-color: background(normal);
+}*/
+
+.test {
+  height: 100px;
+  background-color: red;
 }
 
 .card-login {

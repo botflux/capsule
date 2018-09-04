@@ -3,8 +3,8 @@
 
 .text-field {
   @include mdc-text-field-ink-color(color(primary));
-  @include mdc-text-field-label-color(color(primary));
+  //@include mdc-text-field-label-color(color(primary));
   @include mdc-text-field-caret-color(color(primary));
   @include mdc-text-field-line-ripple-color(color(primary));
-  @include mdc-text-field-fill-color(background(normal));
+  //@include mdc-text-field-fill-color(background(normal));
 }

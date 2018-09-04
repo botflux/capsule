@@ -2,11 +2,73 @@
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
+{% set bodyClasses = 'dashboard-layout' %}
+
 {% block body %}
-    {% for capsule in capsules %}
-        <div>
-            <p>{{ capsule.title }}</p>
-            <p>{{ capsule.description }}</p>
+    <aside class="mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">Capsule App</h3>
+            <h6 class="mdc-drawer__subtitle">{{ app.user.firstName }} {{ app.user.lastName }}</h6>
         </div>
-    {% endfor %}
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" href="{{ path('dashboard') }}" aria-selected="true">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    Home
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>
+                    Settings
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">help</i>
+                    Help
+                </a>
+                <a href="{{ path('logout') }}" class="mdc-list-item">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+
+    <div class="mdc-drawer-app-content">
+        <header class="mdc-top-app-bar app-bar" id="app-bar" data-mdc-auto-init="MDCTopAppBar">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                    <span class="mdc-top-app-bar__title">Dashboard</span>
+                </section>
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                    <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Add a new time capsule" alt="Add a new time capsule">add</a>
+                    <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Join a time capsule" alt="Join a time capsule">link</a>
+                </section>
+            </div>
+        </header>
+
+        <main class="main-content" id="main-content">
+            <div class="mdc-top-app-bar--fixed-adjust"></div>
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                        <div class="mdc-card">
+                            <div class="mdc-card__media">
+                                <div class="mdc-card__media-content">Title</div>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button class="mdc-button mdc-card__action mdc-card__action--button">Action 1</button>
+                                    <button class="mdc-button mdc-card__action mdc-card__action--button">Action 2</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"></div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"></div>
+                </div>
+            </div>
+        </main>
+    </div>
 {% endblock %}

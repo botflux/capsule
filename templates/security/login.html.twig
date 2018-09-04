@@ -3,10 +3,41 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    {#
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner" style="height:100vh">
+            <div class="mdc-card form-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <h1>Capsule app</h1>
+                <p>Log into capsule app</p>
+                <form action="{{ path('login') }}" method="post" class="card-login-form">
+                    <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+                        <input type="text" id="username" class="mdc-text-field__input" name="_username" value="{{ last_username }}" />
+                        <label for="username" class="mdc-floating-label">Email address</label>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
+                    <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+                        <input type="password" id="password" class="mdc-text-field__input" name="_password" />
+                        <label for="password" class="mdc-floating-label">Password</label>
+                        <div class="mdc-line-ripple"></div>
+                        <!--<span class="helper-text">Type your email address</span>-->
+                    </div>
+                    <input type="hidden" name="_dashboard" value="/dashboard" />
+
+                    <div class="button-group">
+                        <button class="mdc-button mdc-button--raised button" data-mdc-auto-init="MDCButton">
+                            login
+                        </button>
+                        <a href="{{ path('register') }}" class="mdc-button button-text" data-mdc-auto-init="MDCButton">register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{#
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}#}
+    {#
     <main class="container">
 
         <section class="card-login">
@@ -32,11 +63,7 @@
                     <!--<span class="helper-text">Type your email address</span>-->
                 </div>
                 <input type="hidden" name="_dashboard" value="/dashboard" />
-{#
-                <div class="button-group">
-                    <button type="submit" class="btn btn-colored btn-raised">LOGIN</button>
-                    <a href="{{ path('register') }}" class="btn btn-text">REGISTER</a>
-                </div>#}
+
                 <div class="button-group">
                     <button class="mdc-button mdc-button--raised button" data-mdc-auto-init="MDCButton">
                         login
@@ -45,5 +72,9 @@
                 </div>
             </form>
         </section>
-    </main>
-{% endblock %}
+    </main>#}
+{#
+                <div class="button-group">
+                    <button type="submit" class="btn btn-colored btn-raised">LOGIN</button>
+                    <a href="{{ path('register') }}" class="btn btn-text">REGISTER</a>
+                </div>#}

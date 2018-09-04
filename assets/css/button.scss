@@ -1,15 +1,6 @@
 @import "variables";
 @import "~@material/button/mdc-button";
 
-.button {
-  @include mdc-button-filled-accessible(color(primary));
-}
-
-.button-text {
-  @include mdc-button-ink-color(color(primary));
-  @include mdc-button-outline-color(color(primary));
-}
-
 /*
   Base class for every button
   Add btn-colored if you want a colored button

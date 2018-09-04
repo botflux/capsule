@@ -24,6 +24,28 @@
     "@material/theme" "^0.39.1"
     "@material/typography" "^0.39.0"
 
+"@material/card@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/card/-/card-0.39.1.tgz#8465d1cb5702faaa90fe978b91d69f0c09b84abf"
+  dependencies:
+    "@material/elevation" "^0.39.1"
+    "@material/ripple" "^0.39.1"
+    "@material/rtl" "^0.39.1"
+    "@material/theme" "^0.39.1"
+
+"@material/drawer@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/drawer/-/drawer-0.39.1.tgz#12628ec1ecfc99a7fb43b41631740e1553332e6a"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/elevation" "^0.39.1"
+    "@material/list" "^0.39.1"
+    "@material/rtl" "^0.39.1"
+    "@material/theme" "^0.39.1"
+    "@material/typography" "^0.39.0"
+    focus-trap "^3.0.0"
+
 "@material/elevation@^0.39.1":
   version "0.39.1"
   resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-0.39.1.tgz#43bb1fe6a0f71332ae11dc18505a8b7cec343dde"
@@ -40,6 +62,10 @@
     "@material/theme" "^0.39.1"
     "@material/typography" "^0.39.0"
 
+"@material/layout-grid@^0.39.0":
+  version "0.39.0"
+  resolved "https://registry.yarnpkg.com/@material/layout-grid/-/layout-grid-0.39.0.tgz#8e96645404cfee2655999bc591264c434897af3d"
+
 "@material/line-ripple@^0.39.1":
   version "0.39.1"
   resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-0.39.1.tgz#1caab8dcd2dbec21a96060abd3f1cb85b8b63335"
@@ -47,6 +73,16 @@
     "@material/animation" "^0.39.0"
     "@material/base" "^0.39.0"
     "@material/theme" "^0.39.1"
+
+"@material/list@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/list/-/list-0.39.1.tgz#5dbe67dc56568836c437edd08ed9cce185b3cc38"
+  dependencies:
+    "@material/base" "^0.39.0"
+    "@material/ripple" "^0.39.1"
+    "@material/rtl" "^0.39.1"
+    "@material/theme" "^0.39.1"
+    "@material/typography" "^0.39.0"
 
 "@material/notched-outline@^0.39.1":
   version "0.39.1"
@@ -86,6 +122,18 @@
 "@material/theme@^0.39.1":
   version "0.39.1"
   resolved "https://registry.yarnpkg.com/@material/theme/-/theme-0.39.1.tgz#5fb160222e2b213628b285af26ca65c6f4327fe5"
+
+"@material/top-app-bar@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/top-app-bar/-/top-app-bar-0.39.1.tgz#97a74aa9bedee13662fd7de03257fcc0588f9192"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/elevation" "^0.39.1"
+    "@material/ripple" "^0.39.1"
+    "@material/rtl" "^0.39.1"
+    "@material/theme" "^0.39.1"
+    "@material/typography" "^0.39.0"
 
 "@material/typography@^0.39.0":
   version "0.39.0"
@@ -2160,6 +2208,13 @@ find-up@^2.0.0, find-up@^2.1.0:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+focus-trap@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-3.0.0.tgz#4d2ee044ae66bf7eb6ebc6c93bd7a1039481d7dc"
+  dependencies:
+    tabbable "^3.1.0"
+    xtend "^4.0.1"
 
 follow-redirects@^1.0.0:
   version "1.5.7"
@@ -5076,6 +5131,10 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
+tabbable@^3.1.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-3.1.1.tgz#db7512f28a9a1ed16e4275bd190131be9d5ad8e9"
+
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"
@@ -5504,7 +5563,7 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
-xtend@^4.0.0:
+xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 

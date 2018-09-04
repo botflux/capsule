@@ -17,10 +17,28 @@ window.mdcAutoInit = mdcAutoInit;
 
 import {MDCTextField} from '@material/textfield';
 import {MDCRipple} from '@material/ripple';
+import {MDCTopAppBar} from '@material/top-app-bar/index';
+import {MDCList} from "@material/list";
+import {MDCDrawer} from "@material/drawer";
 
 //const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
 mdcAutoInit.register('MDCTextField', MDCTextField);
 mdcAutoInit.register('MDCButton', MDCRipple);
+try {
+  const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+
+  const list = MDCList.attachTo(document.querySelector('.mdc-list'));
+  list.wrapFocus = true;
+  mdcAutoInit.register('MDCTopAppBar', MDCTopAppBar);
+  const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+  topAppBar.setScrollTarget(document.getElementById('main-content'));
+  topAppBar.listen('MDCTopAppBar:nav', () => {
+    drawer.open = !drawer.open;
+  });
+} catch (e) {
+
+}
+
 
 //const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 //mdcAutoInit.register('MDCTextField', MDCTextField);

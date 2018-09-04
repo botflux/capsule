@@ -1,15 +1,13 @@
-
 $card-border-radius: 2px;
 
 $background-colors: (
-        normal: #303030,
-        dark-1: #707070,
-        dark-2: #212121
+  normal: #303030,
+  dark-1: #707070,
+  dark-2: #212121
 );
 
 $colors: (
-  primary: #92CBC5,
-  primary-light-opacity: #92CBC520
+  primary: #92CBC5
 );
 
 @function background ($name) {
@@ -27,3 +25,5 @@ $colors: (
 @mixin shadow-colored ($x, $y, $e, $color) {
   box-shadow: $x $y $e 0 $color;
 }
+
+$mdc-theme-primary: color(primary);

@@ -1,0 +1,29 @@
+@import "~@material/card/mdc-card";
+
+.form-card {
+  padding: 16px;
+  align-self: center;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+
+  }
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  form {
+    margin-top: 32px;
+
+    .text-field {
+      margin-bottom: 16px;
+    }
+
+    .button-group {
+      margin-top: 16px;
+    }
+  }
+}

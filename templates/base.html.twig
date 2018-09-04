@@ -5,9 +5,11 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="/build/app.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                  rel="stylesheet">
         {% endblock %}
     </head>
-    <body>
+    <body class="{{ bodyClasses is not defined ? '' : bodyClasses }} mdc-theme--background">
         {% block header %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}
