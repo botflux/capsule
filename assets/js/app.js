@@ -20,6 +20,8 @@ import {MDCRipple} from '@material/ripple';
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCList} from "@material/list";
 import {MDCDrawer} from "@material/drawer";
+import {MDCIconToggle} from '@material/icon-toggle';
+
 
 //const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
 mdcAutoInit.register('MDCTextField', MDCTextField);
@@ -35,6 +37,12 @@ try {
   topAppBar.listen('MDCTopAppBar:nav', () => {
     drawer.open = !drawer.open;
   });
+} catch (e) {
+
+}
+
+try {
+  MDCIconToggle.attachTo(document.querySelector('.mdc-icon-toggle'));
 } catch (e) {
 
 }

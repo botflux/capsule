@@ -27,3 +27,24 @@
     }
   }
 }
+
+.dashboard-capsule-card {
+
+  .dashboard-capsule-card-primary {
+    padding: 16px 16px 16px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 14px 0 0;
+  }
+
+  .dashboard-capsule-card-action {
+    padding: 16px 16px 16px;
+  }
+}

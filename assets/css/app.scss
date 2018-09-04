@@ -6,8 +6,9 @@
 @import "drawer";
 @import "layout";
 @import "card";
+@import "typography";
 @import "~@material/theme/mdc-theme";
-
+@import "~@material/icon-button/mdc-icon-button";
 $mdc-theme-background: background(normal);
 /*
 body {
