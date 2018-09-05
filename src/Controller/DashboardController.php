@@ -23,7 +23,6 @@ class DashboardController extends AbstractController
         $order = (empty($orderParam)) ? 'name': $orderParam;
 
         return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController',
             'capsules' => $service->getRelatedToUserCapsules($this->getUser(), $order)
         ]);
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% set bodyClasses = 'dashboard-layout' %}
 
@@ -75,7 +75,7 @@
                 <div class="mdc-layout-grid__inner">
 
                     {% for capsule in capsules %}
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
                             <div class="mdc-card dashboard-capsule-card">
                                 <div class="mdc-card__primary-action mdc-ripple-upgraded dashboard-capsule-card-primary" data-mdc-auto-init="MDCButton" data-capsule-redirect="{{ capsule.id }}">
                                     <h3 class="mdc-typography--body1 mdc-typography">{{ capsule.title }}</h3>
@@ -122,8 +122,8 @@
                 <div class="mdc-text-field mdc-text-field--fullwidth">
                     <input class="mdc-text-field__input"
                            type="text"
-                           placeholder="Enter capsule url"
-                           aria-label="Enter capsule url"
+                           placeholder="Enter the capsule invite identification"
+                           aria-label="Enter the capsule invite identification"
                            id="join-capsule-text-field"
                    >
                 </div>
