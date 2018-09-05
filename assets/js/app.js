@@ -20,6 +20,7 @@ import {MDCDrawer} from "@material/drawer";
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCDialog} from '@material/dialog';
 import {MDCChipSet} from '@material/chips';
+import axios from 'axios';
 window.mdcAutoInit = mdcAutoInit;
 
 mdcAutoInit.register('MDCTextField', MDCTextField);
@@ -52,30 +53,46 @@ try {
 //mdcAutoInit.register('MDCTextField', MDCTextField);
 try {
   const dialog = new MDCDialog(document.querySelector('#link-dialog'));
-// search for all capsule in the page thanks to data-capsule-redirect attribute
-// and set a on click listener so when the user click on a capsule he is redirect
-// to the capsule page
-  document.querySelectorAll('[data-capsule-redirect]').forEach((el) => {
-    el.addEventListener('click', () => {
-      window.location = `/capsule/${el.getAttribute('data-capsule-redirect')}`
-    });
-  });
 
   document.querySelector('[data-link-capsule]').addEventListener('click', () => {
     dialog.show();
   });
+
+    dialog.listen('MDCDialog:accept', () => {
+        // get link inside the text box
+        let inviteCode = document.querySelector('#join-capsule-text-field').value;
+        axios.get(`/capsule/invite/${inviteCode}`)
+            .then((response) => {
+                let data = JSON.parse(response.data);
+                window.location = `/capsule/${data.id}`;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    });
 } catch (e) {
 
 }
+
+try {
+
+// search for all capsule in the page thanks to data-capsule-redirect attribute
+// and set a on click listener so when the user click on a capsule he is redirect
+// to the capsule page
+    document.querySelectorAll('[data-capsule-redirect]').forEach((el) => {
+        el.addEventListener('click', () => {
+            window.location = `/capsule/${el.getAttribute('data-capsule-redirect')}`
+        });
+    });
+} catch (e) {}
+
 let orderChipsSet = document.querySelectorAll('[data-chips-capsule-order]');
 
 if (orderChipsSet !== undefined) {
   orderChipsSet.forEach((el) => {
     el.addEventListener('click', () => {
-      console.log('Ok');
       window.location = `/dashboard?order=${el.getAttribute('data-chips-capsule-order')}`;
     });
   });
-} else {
-  console.log('Not ok');
 }

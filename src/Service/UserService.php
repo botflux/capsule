@@ -56,4 +56,18 @@ class UserService
         $encoded = $this->passwordEncoder->encodePassword($user, $user->getPassword());
         return ($user->setPassword($encoded));
     }
+
+    /**
+     * Generates a random api key
+     * @return string
+     * @throws \Exception
+     */
+    public function getRandomApiKey()
+    {
+        $random = random_bytes(20);
+        $randomHash = hash('md5', $random);
+        return $randomHash;
+    }
+
+
 }

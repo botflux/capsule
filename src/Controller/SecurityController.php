@@ -41,6 +41,7 @@ class SecurityController extends AbstractController
      * @param Request $request
      * @param UserService $userService
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function register (Request $request, UserService $userService)
     {
@@ -51,7 +52,7 @@ class SecurityController extends AbstractController
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             $user = $userForm->getData();
-
+            $user->setApiKey($userService->getRandomApiKey());
             if ($userService->checkIfUserExists($user->getEmail())) {
                 // add flash
             } else {

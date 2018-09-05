@@ -27,6 +27,7 @@
         "@material/textfield": "^0.39.1",
         "@material/theme": "^0.39.1",
         "@material/top-app-bar": "^0.39.1",
-        "@material/typography": "^0.39.0"
+        "@material/typography": "^0.39.0",
+        "axios": "^0.18.0"
     }
 }
