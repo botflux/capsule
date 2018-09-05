@@ -44,6 +44,8 @@ class TimeCapsuleService
 
         $allCapsules = array_merge($allCapsules, $ownedCapsules);
 
-        return array_unique($allCapsules);
+        $allUniques = array_unique($allCapsules);
+
+        return $allUniques;
     }
 }

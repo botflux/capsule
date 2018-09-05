@@ -11,10 +11,7 @@ require('../css/app.scss');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // var $ = require('jquery');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 import mdcAutoInit from '@material/auto-init';
-window.mdcAutoInit = mdcAutoInit;
-
 import {MDCTextField} from '@material/textfield';
 import {MDCRipple} from '@material/ripple';
 import {MDCTopAppBar} from '@material/top-app-bar/index';
@@ -22,12 +19,13 @@ import {MDCList} from "@material/list";
 import {MDCDrawer} from "@material/drawer";
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCDialog} from '@material/dialog';
+import {MDCChipSet} from '@material/chips';
+window.mdcAutoInit = mdcAutoInit;
 
-const dialog = new MDCDialog(document.querySelector('#my-mdc-dialog'));
-
-//const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
 mdcAutoInit.register('MDCTextField', MDCTextField);
 mdcAutoInit.register('MDCButton', MDCRipple);
+mdcAutoInit.register('MDCChips', MDCChipSet);
+
 try {
   const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
   const list = MDCList.attachTo(document.querySelector('.mdc-list'));
@@ -52,16 +50,32 @@ try {
 
 //const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 //mdcAutoInit.register('MDCTextField', MDCTextField);
-
+try {
+  const dialog = new MDCDialog(document.querySelector('#link-dialog'));
 // search for all capsule in the page thanks to data-capsule-redirect attribute
 // and set a on click listener so when the user click on a capsule he is redirect
 // to the capsule page
-document.querySelectorAll('[data-capsule-redirect]').forEach((el) => {
-  el.addEventListener('click', () => {
-    window.location = `/capsule/${el.getAttribute('data-capsule-redirect')}`
+  document.querySelectorAll('[data-capsule-redirect]').forEach((el) => {
+    el.addEventListener('click', () => {
+      window.location = `/capsule/${el.getAttribute('data-capsule-redirect')}`
+    });
   });
-});
 
-document.querySelector('[data-link-capsule]').addEventListener('click', () => {
-  dialog.show();
-});
+  document.querySelector('[data-link-capsule]').addEventListener('click', () => {
+    dialog.show();
+  });
+} catch (e) {
+
+}
+let orderChipsSet = document.querySelectorAll('[data-chips-capsule-order]');
+
+if (orderChipsSet !== undefined) {
+  orderChipsSet.forEach((el) => {
+    el.addEventListener('click', () => {
+      console.log('Ok');
+      window.location = `/dashboard?order=${el.getAttribute('data-chips-capsule-order')}`;
+    });
+  });
+} else {
+  console.log('Not ok');
+}

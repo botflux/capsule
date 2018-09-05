@@ -19,7 +19,6 @@ class TimeCapsuleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, TimeCapsule::class);
     }
-//    /**
 //     * @return TimeCapsule[] Returns an array of TimeCapsule objects
 //     */
     /*

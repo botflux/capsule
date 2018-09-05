@@ -8,14 +8,16 @@
 @import "card";
 @import "typography";
 @import "dialog";
+@import "chips";
 @import "~@material/theme/mdc-theme";
 @import "~@material/icon-button/mdc-icon-button";
 
+
 $mdc-theme-background: background(normal);
-/*
-body {
-  background-color: background(normal);
-}*/
+
+.text-centered {
+  text-align: center;
+}
 
 .card-login {
   background-color: background(normal);
@@ -52,53 +54,6 @@ body {
   height: 100%;
 }
 
-.form-group {/*
-  display: grid;
-  grid-row-gap: 6px;*/
-/*
-  label {
-    font-size: 12px;
-    color: rgba(255,255,255,.54);
-  }
-
-  input {
-    border: 0;
-    border-bottom: 2px solid #80CBC4;
-    padding-bottom: 9px;
-    background-color: #00000000;
-    font-size: 16px;
-    color: rgba(255,255,255, .38);
-  }
-
-  input:focus {
-    outline: 0;
-  }*/
-
-}
-/*
-.btn-contained {
-  background-color: color(primary);
-}
-
-.btn-text {
-  background-color: #00000000;
-  color: color(primary) !important;
-}
-
-.btn {
-  text-transform: uppercase;
-  border: none;
-  color: #000;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: $card-border-radius;
-  cursor: pointer;
-}
-*/
 .button-group {
   display: grid;
   grid-row-gap: 6px;

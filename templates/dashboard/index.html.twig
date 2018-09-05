@@ -5,6 +5,7 @@
 {% set bodyClasses = 'dashboard-layout' %}
 
 {% block body %}
+    {# Side menu drawer #}
     <aside class="mdc-drawer mdc-drawer--modal">
         <div class="mdc-drawer__header">
             <h3 class="mdc-drawer__title">Capsule App</h3>
@@ -31,9 +32,9 @@
             </nav>
         </div>
     </aside>
-
     <div class="mdc-drawer-scrim"></div>
 
+    {# Main content #}
     <div class="mdc-drawer-app-content">
         <header class="mdc-top-app-bar app-bar" id="app-bar" data-mdc-auto-init="MDCTopAppBar">
             <div class="mdc-top-app-bar__row">
@@ -51,10 +52,29 @@
         <main class="main-content" id="main-content">
             <div class="mdc-top-app-bar--fixed-adjust"></div>
             <div class="mdc-layout-grid">
+                {% if capsules is not empty %}
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <div class="mdc-chip-set" data-mdc-auto-init="MDCChips">
+                            <div class="mdc-chip" tabindex="0" data-chips-capsule-order="date">
+                                <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">event</i>
+                                <div class="mdc-chip__text">Date</div>
+                            </div>
+                            <div class="mdc-chip" tabindex="1" data-chips-capsule-order="name">
+                                <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">text_format</i>
+                                <div class="mdc-chip__text">Name</div>
+                            </div>
+                            <div class="mdc-chip" tabindex="2" data-chips-capsule-order="favorite">
+                                <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">favorite</i>
+                                <div class="mdc-chip__text">Likes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="mdc-layout-grid__inner">
 
                     {% for capsule in capsules %}
-
                         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                             <div class="mdc-card dashboard-capsule-card">
                                 <div class="mdc-card__primary-action mdc-ripple-upgraded dashboard-capsule-card-primary" data-mdc-auto-init="MDCButton" data-capsule-redirect="{{ capsule.id }}">
@@ -73,6 +93,11 @@
                                 </div>
                             </div>
                         </div>
+                    {% else %}
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                            <h3 class="mdc-typography--headline3 mdc-typography text-centered">You haven't any time capsule :(</h3>
+                            <p class="mdc-typography mdc-typography--headline6 text-centered">You can create a new time capsule by clicking on + icon or contribute to an existing one by getting an invite link</p>
+                        </div>
                     {% endfor %}
 
                 </div>
@@ -80,7 +105,8 @@
         </main>
     </div>
 
-    <aside id="my-mdc-dialog"
+    {# Invite link modal dialog #}
+    <aside id="link-dialog"
            class="mdc-dialog"
            role="alertdialog"
            aria-labelledby="my-mdc-dialog-label"
