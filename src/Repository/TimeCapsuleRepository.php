@@ -33,6 +33,15 @@ class TimeCapsuleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findByLink($link)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.inviteLink = :link')
+            ->setParameter('link', $link)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 //     * @return TimeCapsule[] Returns an array of TimeCapsule objects
 //     */
     /*

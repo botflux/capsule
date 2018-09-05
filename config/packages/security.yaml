@@ -10,7 +10,6 @@ security:
         db_provider:
             entity:
                 class: App\Entity\User
-                property: email
         chain_provider:
             chain:
                 providers: [in_memory, db_provider]
@@ -36,7 +35,9 @@ security:
             logout:
                 path: /logout
                 target: /login
-
+            guard:
+                authenticators:
+                    - App\Security\TokenAuthenticator
             # activate different ways to authenticate
 
             # http_basic: true

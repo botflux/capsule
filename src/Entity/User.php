@@ -55,6 +55,11 @@ class User implements UserInterface, \Serializable
      */
     private $contributedTimeCapsules;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $apiKey;
+
     public function __construct()
     {
         $this->ownedTimeCapsules = new ArrayCollection();
@@ -285,6 +290,18 @@ class User implements UserInterface, \Serializable
             $this->contributedTimeCapsules->removeElement($contributedTimeCapsule);
             $contributedTimeCapsule->removeContributor($this);
         }
+
+        return $this;
+    }
+
+    public function getApiKey(): ?string
+    {
+        return $this->apiKey;
+    }
+
+    public function setApiKey(string $apiKey): self
+    {
+        $this->apiKey = $apiKey;
 
         return $this;
     }
