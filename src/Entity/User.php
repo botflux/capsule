@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="app_user")
@@ -22,21 +23,52 @@ class User implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 1,
+     *     max = 255,
+     *     minMessage = "Your first name must at least be {{ limit }} character long.",
+     *     maxMessage = "Your first name cannot be longer than {{ limit }} characters."
+     * )
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 1,
+     *     max = 255,
+     *     minMessage = "Your last name must at least be {{ limit }} character long.",
+     *     maxMessage = "Your last name cannot be longer than {{ limit }} characters."
+     * )
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 1,
+     *     max = 255,
+     *     minMessage = "Your email must be at least {{ limit }} character long.",
+     *     maxMessage = "Your email cannot be longer than {{ limit }} characters."
+     * )
+     * @Assert\Email(
+     *     message = "The email {{ value }} is not a valid email."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 8,
+     *     max = 255,
+     *     minMessage = "Your password must at least be {{ limit }} characters long.",
+     *     maxMessage = "Your password cannot be longer than {{ limit }} characters."
+     * )
      */
     private $password;
 
@@ -56,7 +88,7 @@ class User implements UserInterface, \Serializable
     private $contributedTimeCapsules;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $apiKey;
 
