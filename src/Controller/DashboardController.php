@@ -19,9 +19,12 @@ class DashboardController extends AbstractController
      */
     public function index(Request $request, TimeCapsuleService $service)
     {
+        $orderParam = $request->get('order');
+        $order = (empty($orderParam)) ? 'name': $orderParam;
+
         return $this->render('dashboard/index.html.twig', [
             'controller_name' => 'DashboardController',
-            'capsules' => $service->getRelatedToUserCapsules($this->getUser())
+            'capsules' => $service->getRelatedToUserCapsules($this->getUser(), $order)
         ]);
     }
 

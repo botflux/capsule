@@ -50,10 +50,16 @@ class User implements UserInterface, \Serializable
      */
     private $contributedFragments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\TimeCapsule", mappedBy="contributors")
+     */
+    private $contributedTimeCapsules;
+
     public function __construct()
     {
         $this->ownedTimeCapsules = new ArrayCollection();
         $this->contributedFragments = new ArrayCollection();
+        $this->contributedTimeCapsules = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -250,6 +256,34 @@ class User implements UserInterface, \Serializable
             if ($contributedFragment->getAuthor() === $this) {
                 $contributedFragment->setAuthor(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TimeCapsule[]
+     */
+    public function getContributedTimeCapsules(): Collection
+    {
+        return $this->contributedTimeCapsules;
+    }
+
+    public function addContributedTimeCapsule(TimeCapsule $contributedTimeCapsule): self
+    {
+        if (!$this->contributedTimeCapsules->contains($contributedTimeCapsule)) {
+            $this->contributedTimeCapsules[] = $contributedTimeCapsule;
+            $contributedTimeCapsule->addContributor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContributedTimeCapsule(TimeCapsule $contributedTimeCapsule): self
+    {
+        if ($this->contributedTimeCapsules->contains($contributedTimeCapsule)) {
+            $this->contributedTimeCapsules->removeElement($contributedTimeCapsule);
+            $contributedTimeCapsule->removeContributor($this);
         }
 
         return $this;

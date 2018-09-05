@@ -30,22 +30,21 @@ class TimeCapsuleService
         $this->capsuleRepository = $capsuleRepository;
     }
 
-    public function getRelatedToUserCapsules ($user)
+    public function getRelatedToUserCapsules ($user, $order = 'name')
     {
-        $ownedCapsules = $user->getOwnedTimeCapsules()->toArray();
-        $contributedFragments = $user->getContributedFragments();
+        return $this->capsuleRepository->findRelatedToUser($user, $this->getOrderByName($order));
+    }
 
-        $allCapsules = [];
-
-        foreach ($contributedFragments as $fragment)
+    private function getOrderByName ($orderName)
+    {
+        switch ($orderName)
         {
-            $allCapsules[] = $fragment->getTimeCapsule();
+            case 'name':
+                return 'title';
+            case 'date':
+                return 'createdAt';
+            default:
+                return 'title';
         }
-
-        $allCapsules = array_merge($allCapsules, $ownedCapsules);
-
-        $allUniques = array_unique($allCapsules);
-
-        return $allUniques;
     }
 }

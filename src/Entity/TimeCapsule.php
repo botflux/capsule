@@ -48,9 +48,20 @@ class TimeCapsule
      */
     private $fragments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="contributedTimeCapsules")
+     */
+    private $contributors;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $inviteLink;
+
     public function __construct()
     {
         $this->fragments = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,5 +163,43 @@ class TimeCapsule
     public function __toString ()
     {
         return $this->id.$this->title;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getContributors(): Collection
+    {
+        return $this->contributors;
+    }
+
+    public function addContributor(User $contributor): self
+    {
+        if (!$this->contributors->contains($contributor)) {
+            $this->contributors[] = $contributor;
+        }
+
+        return $this;
+    }
+
+    public function removeContributor(User $contributor): self
+    {
+        if ($this->contributors->contains($contributor)) {
+            $this->contributors->removeElement($contributor);
+        }
+
+        return $this;
+    }
+
+    public function getInviteLink(): ?string
+    {
+        return $this->inviteLink;
+    }
+
+    public function setInviteLink(string $inviteLink): self
+    {
+        $this->inviteLink = $inviteLink;
+
+        return $this;
     }
 }
