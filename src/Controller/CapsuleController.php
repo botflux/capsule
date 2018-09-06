@@ -13,19 +13,25 @@ class CapsuleController extends AbstractController
 {
     /**
      * @Route("/capsule", name="capsule")
+     * @param TimeCapsuleService $service
+     * @return JsonResponse|Response
      */
-    public function index()
+    public function index(TimeCapsuleService $service)
     {
-        return $this->render('capsule/index.html.twig', [
-            'controller_name' => 'CapsuleController',
-        ]);
+        $user = $this->getUser();
+
+        if ($user !== null) {
+            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user)));
+        } else {
+            return new Response('', 403);
+        }
     }
 
     /**
      * @Route("/capsule/invite/{link}", name="capsule_invite")
      * @param $link
      * @param TimeCapsuleService $service
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     public function capsuleInvite ($link, TimeCapsuleService $service)
     {

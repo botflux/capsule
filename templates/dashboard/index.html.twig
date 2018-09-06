@@ -54,7 +54,7 @@
             <div class="mdc-layout-grid">
                 {% if capsules is not empty %}
                 <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
                         <div class="mdc-chip-set" data-mdc-auto-init="MDCChips">
                             <div class="mdc-chip" tabindex="0" data-chips-capsule-order="date">
                                 <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">event</i>
@@ -75,7 +75,7 @@
                 <div class="mdc-layout-grid__inner">
 
                     {% for capsule in capsules %}
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                             <div class="mdc-card dashboard-capsule-card">
                                 <div class="mdc-card__primary-action mdc-ripple-upgraded dashboard-capsule-card-primary" data-mdc-auto-init="MDCButton" data-capsule-redirect="{{ capsule.id }}">
                                     <h3 class="mdc-typography--body1 mdc-typography">{{ capsule.title }}</h3>
@@ -89,7 +89,7 @@
                                             data-toggle-off='{"label": "Add to favorites", "content": "favorite_border"}'>
                                         favorite_border
                                     </button>
-                                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">keyboard_arrow_down</button>
                                 </div>
                             </div>
                         </div>

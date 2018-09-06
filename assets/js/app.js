@@ -17,8 +17,6 @@ import {MDCDialog} from '@material/dialog';
 import {MDCChipSet} from '@material/chips';
 import {MDCTextFieldHelperText} from '@material/textfield/helper-text';
 
-require('./capsule-chips-filter');
-require('./capsule-card');
 window.mdcAutoInit = mdcAutoInit;
 
 // registering text fields for initialization

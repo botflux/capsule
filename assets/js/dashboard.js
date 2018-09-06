@@ -1,9 +1,13 @@
-// declaring app drawer (left modal menu)
 import {MDCDrawer} from "@material/drawer/index";
 import {MDCList} from "@material/list/index";
 import {MDCTopAppBar} from "@material/top-app-bar/index";
 import axios from "axios/index";
 import {MDCDialog} from "@material/dialog/index";
+
+require('./capsule-chips-filter');
+//require('./capsule-card');
+import CardInteraction from './capsule-card';
+CardInteraction();
 
 const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
 // declaring the list inside the app drawer
