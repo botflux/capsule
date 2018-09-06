@@ -1,5 +1,6 @@
 @import "variables";
 @import "~@material/textfield/mdc-text-field";
+@import "~@material/textfield/helper-text/mdc-text-field-helper-text";
 
 .text-field {
   @include mdc-text-field-ink-color(color(primary));
@@ -7,4 +8,5 @@
   @include mdc-text-field-caret-color(color(primary));
   @include mdc-text-field-line-ripple-color(color(primary));
   //@include mdc-text-field-fill-color(background(normal));
+  width: 100%;
 }

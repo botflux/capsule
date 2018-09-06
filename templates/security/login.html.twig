@@ -6,8 +6,8 @@
     <div class="mdc-layout-grid">
         <div class="mdc-layout-grid__inner" style="height:100vh">
             <div class="mdc-card form-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                <h1>Capsule app</h1>
-                <p>Log into capsule app</p>
+                <h1 class="form-card-title">Capsule app</h1>
+                <p class="form-card-subtitle">Log into capsule app</p>
                 <form action="{{ path('login') }}" method="post" class="card-login-form">
                     <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
                         <input type="text" id="username" class="mdc-text-field__input" name="_username" value="{{ last_username }}" />

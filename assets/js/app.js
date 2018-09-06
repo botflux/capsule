@@ -15,6 +15,7 @@ import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCDialog} from '@material/dialog';
 import {MDCChipSet} from '@material/chips';
+import {MDCTextFieldHelperText} from '@material/textfield/helper-text';
 
 require('./capsule-chips-filter');
 require('./capsule-card');
@@ -32,4 +33,6 @@ mdcAutoInit.register('MDCToggle', MDCIconToggle);
 mdcAutoInit.register('MDCDialog', MDCDialog);
 // registering of top app bar
 mdcAutoInit.register('MDCTopAppBar', MDCTopAppBar);
+// registering help text
+mdcAutoInit.register('MDCHelperText', MDCTextFieldHelperText);
 

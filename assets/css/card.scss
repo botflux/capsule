@@ -4,22 +4,25 @@
   padding: 16px;
   align-self: center;
 
-  h1 {
+  .form-card-title {
     margin: 0;
     text-align: center;
-
   }
 
-  p {
+  .form-card-subtitle {
     margin: 0;
     text-align: center;
+  }
+
+  .text-field-group {
+    width: 100%;
   }
 
   form {
     margin-top: 32px;
 
     .text-field {
-      margin-bottom: 16px;
+      //margin-bottom: 16px;
     }
 
     .button-group {

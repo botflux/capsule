@@ -6,17 +6,18 @@
     <div class="mdc-layout-grid">
         <div class="mdc-layout-grid__inner" style="height:100vh">
             <div class="mdc-card form-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                <h1>Capsule app</h1>
-                <p>Log into capsule app</p>
+                <h1 class="form-card-title">Capsule app</h1>
+                <p class="form-card-subtitle">Log into capsule app</p>
 
                 {{ form_start(user_form, {'attr': {'class': 'card-login-form'}}) }}
 
-                <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
-                    {{ form_widget(user_form.firstName, {'attr': {'class': 'mdc-text-field__input'}}) }}
-                    {{ form_label(user_form.firstName, 'First name', {'label_attr': {'class': 'mdc-floating-label'}}) }}
-                    <div class="mdc-line-ripple"></div>
+                <div class="text-field-group">
+                    <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
+                        {{ form_widget(user_form.firstName, {'attr': {'class': 'mdc-text-field__input'}}) }}
+                        {{ form_label(user_form.firstName, 'First name', {'label_attr': {'class': 'mdc-floating-label'}}) }}
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </div>
-
                 <div class="mdc-text-field text-field" data-mdc-auto-init="MDCTextField">
                     {{ form_widget(user_form.lastName, {'attr': {'class': 'mdc-text-field__input'}}) }}
                     {{ form_label(user_form.lastName, 'Last name', {'label_attr': {'class': 'mdc-floating-label'}}) }}
