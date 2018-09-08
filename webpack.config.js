@@ -19,6 +19,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('dashboard', './assets/js/dashboard.js')
+    .addEntry('edit-capsule', './assets/js/edit-capsule.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -34,7 +35,7 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
-
+    .enableVueLoader()
     // enables Sass/SCSS support
     .enableSassLoader(function (options) {
       options.includePaths = ['./node_modules']
