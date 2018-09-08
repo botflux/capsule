@@ -10,16 +10,11 @@
             <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
         {% endblock %}
     </head>
-    <body class="{{ bodyClasses is not defined ? '' : bodyClasses }} mdc-theme--background">
+    <body>
         {% block header %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="/build/app.js"></script>
-            <script>
-              if (window.mdcAutoInit() !== undefined) {
-                window.mdcAutoInit();
-              }
-            </script>
         {% endblock %}
     </body>
 
