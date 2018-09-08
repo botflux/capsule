@@ -1,10 +1,23 @@
 <template>
     <md-app md-mode="reveal">
         <md-app-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-                <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">Capsule App</span>
+            <div class="md-toolbar-row">
+                <div class="md-toolbar-section-start">
+                <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-title">Capsule App</span>
+                </div>
+                <div class="md-toolbar-section-end">
+                    <md-button class="md-icon-button">
+                        <md-icon>refresh</md-icon>
+                    </md-button>
+
+                    <md-button class="md-icon-button">
+                        <md-icon>more_vert</md-icon>
+                    </md-button>
+                </div>
+            </div>
         </md-app-toolbar>
 
         <md-app-drawer :md-active.sync="menuVisible">
@@ -29,7 +42,6 @@
         </md-app-drawer>
 
         <md-app-content>
-            Hello world
             <router-view></router-view>
         </md-app-content>
     </md-app>
@@ -39,7 +51,8 @@
   export default {
     name: 'App',
     data: () => ({
-      menuVisible: false
+      menuVisible: false,
+      loading: false
     }),
     methods: {
       hideDrawer () {

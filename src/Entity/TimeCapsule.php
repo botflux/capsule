@@ -215,7 +215,9 @@ class TimeCapsule implements \JsonSerializable
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'description' => $this->description
+            'description' => $this->description,
+            'createdAt' => $this->createdAt,
+            'closingAt' => $this->closingAt
         ];
     }
 }
