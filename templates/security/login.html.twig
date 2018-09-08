@@ -2,6 +2,13 @@
 
 {% block title %}Login{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/build/vanilla.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+{% endblock %}
+
 {% block body %}
     <div class="mdc-layout-grid">
         <div class="mdc-layout-grid__inner" style="height:100vh">
@@ -35,7 +42,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="/build/app.js"></script>
+    <script src="/build/vanilla.js"></script>
     <script>
       if (window.mdcAutoInit() !== undefined) {
         window.mdcAutoInit();

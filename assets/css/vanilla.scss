@@ -1,0 +1,161 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+$card-border-radius: 2px;
+
+$background-colors: (
+        normal: #303030,
+        dark-1: #707070,
+        dark-2: #212121
+);
+
+$colors: (
+        primary: #3f51b5,
+        primary-2: #92CBC5
+);
+
+@function background ($name) {
+  @return map_get($background-colors, $name);
+}
+
+@function color ($name) {
+  @return map_get($colors, $name);
+}
+
+@mixin shadow ($x, $y, $e) {
+  box-shadow: $x $y $e 0 rgba(0, 0, 0, .4);
+}
+
+@mixin shadow-colored ($x, $y, $e, $color) {
+  box-shadow: $x $y $e 0 $color;
+}
+
+$mdc-theme-primary: color(primary);
+@import "~@material/textfield/mdc-text-field";
+@import "~@material/textfield/helper-text/mdc-text-field-helper-text";
+
+.text-field {
+  @include mdc-text-field-ink-color(color(primary));
+  //@include mdc-text-field-label-color(color(primary));
+  @include mdc-text-field-caret-color(color(primary));
+  @include mdc-text-field-line-ripple-color(color(primary));
+  //@include mdc-text-field-fill-color(background(normal));
+  width: 100%;
+}
+@import "~@material/layout-grid/mdc-layout-grid";
+.mdc-layout-grid {
+  @include mdc-layout-grid(desktop, 0, 80%);
+}
+
+@import "~@material/typography/mdc-typography";
+@import "~@material/theme/mdc-theme";
+@import "~@material/icon-button/mdc-icon-button";
+
+
+$mdc-theme-background: background(normal);
+
+.text-centered {
+  text-align: center;
+}
+
+.card-login {
+  background-color: background(normal);
+  border-radius: $card-border-radius;
+  @include shadow(0px, 1px, 3px);
+  padding: 16px;
+}
+
+.card-login-title {
+  text-align: center;
+  font-weight: 300;
+  font-size: 24px;
+  color: white;
+}
+
+.card-login-subtitle {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 32px;
+  color: rgba(255,255,255,.7);
+}
+
+.card-login-form {
+  min-width: 329px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 8px;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+
+.button-group {
+  display: grid;
+  grid-row-gap: 6px;
+  margin-top: 8px;
+  grid-auto-flow: column;
+  grid-column-gap: 8px;
+  justify-content: start;
+}
+
+@import "~@material/button/mdc-button";
+@import "~@material/card/mdc-card";
+
+.form-card {
+  padding: 16px;
+  align-self: center;
+
+  .form-card-title {
+    margin: 0;
+    text-align: center;
+  }
+
+  .form-card-subtitle {
+    margin: 0;
+    text-align: center;
+  }
+
+  .text-field-group {
+    width: 100%;
+  }
+
+  form {
+    margin-top: 32px;
+
+    .text-field {
+      //margin-bottom: 16px;
+    }
+
+    .button-group {
+      margin-top: 16px;
+    }
+  }
+}
+
+.dashboard-capsule-card {
+
+  .dashboard-capsule-card-primary {
+    padding: 16px 16px 16px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 14px 0 0;
+  }
+
+  .dashboard-capsule-card-action {
+    padding: 16px 16px 16px;
+  }
+}

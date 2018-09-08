@@ -4,7 +4,7 @@
             <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
                 <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title">My Title</span>
+            <span class="md-title">Capsule App</span>
         </md-app-toolbar>
 
         <md-app-drawer :md-active.sync="menuVisible">
@@ -20,11 +20,15 @@
                     <md-icon>settings</md-icon>
                     <span class="md-list-item-text">Account</span>
                 </md-list-item>
+
+                <md-list-item href="/logout">
+                    <md-icon>exit_to_app</md-icon>
+                    <span class="md-list-item-text">Logout</span>
+                </md-list-item>
             </md-list>
         </md-app-drawer>
 
         <md-app-content>
-
             Hello world
             <router-view></router-view>
         </md-app-content>
