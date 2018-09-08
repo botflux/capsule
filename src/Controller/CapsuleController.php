@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\TimeCapsule;
 use App\Service\TimeCapsuleService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -25,6 +26,18 @@ class CapsuleController extends AbstractController
         } else {
             return new Response('', 403);
         }
+    }
+
+    /**
+     * @Route("/capsule/edit/{id}", name="capsule_edit", requirements={"id": "\d+"})
+     * @param TimeCapsule $capsule
+     * @return Response
+     */
+    public function editCapsule (TimeCapsule $capsule)
+    {
+        return $this->render('capsule/index.html.twig', [
+            'capsule' => $capsule
+        ]);
     }
 
     /**

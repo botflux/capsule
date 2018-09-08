@@ -14,12 +14,12 @@
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="/build/app.js"></script>
+            <script>
+              if (window.mdcAutoInit() !== undefined) {
+                window.mdcAutoInit();
+              }
+            </script>
         {% endblock %}
     </body>
 
-    <script>
-        if (window.mdcAutoInit() !== undefined) {
-          window.mdcAutoInit();
-        }
-    </script>
 </html>

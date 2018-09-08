@@ -28,6 +28,10 @@
         "@material/theme": "^0.39.1",
         "@material/top-app-bar": "^0.39.1",
         "@material/typography": "^0.39.0",
-        "axios": "^0.18.0"
+        "axios": "^0.18.0",
+        "vue": "^2.5.17",
+        "vue-loader": "^14",
+        "vue-material": "^1.0.0-beta-10.2",
+        "vue-template-compiler": "^2.5.17"
     }
 }
