@@ -20,7 +20,7 @@ class TimeCapsuleRepository extends ServiceEntityRepository
         parent::__construct($registry, TimeCapsule::class);
     }
 
-    public function findRelatedToUser ($user, $order)
+    public function findRelatedToUser ($user, $order, $start, $end)
     {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.contributors', 'u')
@@ -29,6 +29,8 @@ class TimeCapsuleRepository extends ServiceEntityRepository
             ->orWhere('t.owner = :user')
             ->setParameter('user', $user)
             ->orderBy(sprintf('t.%s', $order))
+            ->setFirstResult($start)
+            ->setMaxResults($end - $start)
             ->getQuery()
             ->getResult();
     }

@@ -36,11 +36,13 @@ class TimeCapsuleService
      * Returns all capsules that user has contributed or created
      * @param User $user specified user
      * @param string $order
+     * @param int $start
+     * @param int $end
      * @return mixed all capsules
      */
-    public function getRelatedToUserCapsules ($user, $order = 'name')
+    public function getRelatedToUserCapsules ($user, $order = 'name', $start = 0, $end = 10)
     {
-        return $this->capsuleRepository->findRelatedToUser($user, $this->getOrderByName($order));
+        return $this->capsuleRepository->findRelatedToUser($user, $this->getOrderByName($order), $start, $end);
     }
 
     public function checkIfCapsuleLinkIsValid ($link)

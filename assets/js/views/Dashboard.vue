@@ -56,6 +56,11 @@
                 </md-card>
             </div>
         </div>
+        <div class="md-layout-item md-layout md-size-100 md-alignment-center">
+            <md-button class="md-primary md-raised md-layout-item md-size-5" @click="getNewCapsules">
+                More
+            </md-button>
+        </div>
     </div>
 </template>
 
@@ -79,11 +84,13 @@
     },
     data () {
       return {
-        capsules: []
+        capsules: [],
+        sort: 'name'
       }
     },
     methods: {
       changeSorting (sort) {
+        this.sort = sort
         this.$http.get(`/capsule?order=${sort}`)
           .then(response => {
             response.json()
@@ -97,6 +104,22 @@
           }, response => {
             console.log('error', response)
           })
+      },
+      getNewCapsules () {
+        let start = this.capsules.length
+        let end = start + 4
+        let sort = this.sort
+
+        this.$http.get(`/capsule?order${sort}&start=${start}&end=${end}`)
+          .then(response => {
+            response.json().then(data => {
+              let newCapsules = JSON.parse(data)
+              // add capsules to array
+            }, error => {})
+          }, response => {
+
+          })
+
       }
     }
   }

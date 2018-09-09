@@ -22,10 +22,19 @@ class CapsuleController extends AbstractController
     {
         $user = $this->getUser();
         $sorting = $request->get('order');
+        $start = $request->get('start');
+        $end = $request->get('end');
 
+        if (!(is_numeric($start) && $start > 0)) {
+            $start = 1;
+        }
+
+        if (!(is_numeric($end) && $end > $start)) {
+            $end = 9;
+        }
 
         if ($user !== null) {
-            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user, $sorting)));
+            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user, $sorting, $start, $end)));
         } else {
             return new Response('', 403);
         }
