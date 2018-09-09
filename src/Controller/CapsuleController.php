@@ -15,14 +15,17 @@ class CapsuleController extends AbstractController
     /**
      * @Route("/capsule", name="capsule")
      * @param TimeCapsuleService $service
+     * @param Request $request
      * @return JsonResponse|Response
      */
-    public function index(TimeCapsuleService $service)
+    public function index(TimeCapsuleService $service, Request $request)
     {
         $user = $this->getUser();
+        $sorting = $request->get('order');
+
 
         if ($user !== null) {
-            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user)));
+            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user, $sorting)));
         } else {
             return new Response('', 403);
         }
@@ -48,9 +51,14 @@ class CapsuleController extends AbstractController
      */
     public function capsuleInvite ($link, TimeCapsuleService $service)
     {
-        if ($capsule = $service->checkIfCapsuleLinkIsValid ($link)) {
-            $service->addUserToCapsule ($capsule, $this->getUser());
+        if ($this->getUser() === null) {
+            return new JsonResponse(json_encode([
+                'type' => 'error',
+                'message' => 'You are not allowed to access this data'
+            ]), 403);
         }
+
+        $capsule = $service->checkIfCapsuleLinkIsValid ($link);
 
         if ($capsule === false) {
             return new Response('No capsule matchs the given link', 404);
@@ -69,6 +77,8 @@ class CapsuleController extends AbstractController
                 'message' => 'You are already a contributors of this time capsule',
             ]);
         }
+
+        $service->addUserToCapsule ($capsule, $this->getUser());
 
         return new JsonResponse(json_encode($capsule));
     }

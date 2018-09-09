@@ -75,7 +75,9 @@ class TimeCapsuleService
         {
             case 'name':
                 return 'title';
-            case 'date':
+            case 'cl_date':
+                return 'closingAt';
+            case 'cr_date':
                 return 'createdAt';
             default:
                 return 'title';
