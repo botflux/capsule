@@ -25,16 +25,25 @@ class CapsuleController extends AbstractController
         $start = $request->get('start');
         $end = $request->get('end');
 
-        if (!(is_numeric($start) && $start > 0)) {
-            $start = 1;
+        if (!(is_numeric($start) && $start >= 0)) {
+            $start = 0;
+        }
+
+        if ($start > 1) {
+            $start += 1;
         }
 
         if (!(is_numeric($end) && $end > $start)) {
-            $end = 9;
+            $end = 8;
         }
 
+        $end += 1;
+
         if ($user !== null) {
-            return new JsonResponse(json_encode($service->getRelatedToUserCapsules($user, $sorting, $start, $end)));
+            $arr = (object)[
+                'capsules' => $service->getRelatedToUserCapsules($user, $sorting, $start, $end),
+            ];
+            return new JsonResponse(json_encode($arr));
         } else {
             return new Response('', 403);
         }

@@ -81,6 +81,8 @@ class TimeCapsuleService
                 return 'closingAt';
             case 'cr_date':
                 return 'createdAt';
+            case 'id':
+                return 'id';
             default:
                 return 'title';
         }

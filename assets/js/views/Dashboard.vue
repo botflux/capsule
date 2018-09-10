@@ -57,69 +57,44 @@
             </div>
         </div>
         <div class="md-layout-item md-layout md-size-100 md-alignment-center">
-            <md-button class="md-primary md-raised md-layout-item md-size-5" @click="getNewCapsules">
+            <md-button class="md-primary md-raised md-layout-item md-size-5" @click="getNewCapsules" v-if="!moreLoading">
                 More
             </md-button>
+            <md-progress-spinner md-mode="indeterminate" v-else></md-progress-spinner>
         </div>
     </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     name: "Dashboard",
-    mounted() {
-      this.$http.get('/capsule')
-        .then(response => {
-            response.json()
-              .then(data => {
-                console.log(JSON.parse(data))
-                this.capsules = JSON.parse(data)
-              })
-              .then(error => {
-                console.log('error:json', error)
-              })
-        }, response => {
-          console.log('error', response)
-        })
+    mounted () {
+    },
+    created () {
+      this.$store.dispatch('capsules/addCapsules', {
+        amount: 8
+      })
     },
     data () {
       return {
-        capsules: [],
-        sort: 'name'
+        moreLoading: false
       }
     },
+    computed: mapState({
+      capsules: state => state.capsules.all
+    }),
     methods: {
       changeSorting (sort) {
-        this.sort = sort
-        this.$http.get(`/capsule?order=${sort}`)
-          .then(response => {
-            response.json()
-              .then(data => {
-                console.log(JSON.parse(data))
-                this.capsules = JSON.parse(data)
-              })
-              .then(error => {
-                console.log('error:json', error)
-              })
-          }, response => {
-            console.log('error', response)
-          })
+        this.$store.dispatch('capsules/changeSort', {
+          sort,
+          amount: 8
+        })
       },
       getNewCapsules () {
-        let start = this.capsules.length
-        let end = start + 4
-        let sort = this.sort
-
-        this.$http.get(`/capsule?order${sort}&start=${start}&end=${end}`)
-          .then(response => {
-            response.json().then(data => {
-              let newCapsules = JSON.parse(data)
-              // add capsules to array
-            }, error => {})
-          }, response => {
-
-          })
-
+        this.$store.dispatch('capsules/addCapsules', {
+          amount: 4
+        })
       }
     }
   }
