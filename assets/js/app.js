@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueTruncateFilter from 'vue-truncate-filter'
 import router from './router/router'
-import './material/material'
+//import './material/material'
 import store from './store'
 import '../css/app.scss'
 
