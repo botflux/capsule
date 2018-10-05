@@ -76,6 +76,10 @@ class TimeCapsule implements \JsonSerializable
 
     public function setTitle(string $title): self
     {
+        if (strlen($title) < 5) {
+            throw new \InvalidArgumentException('Title need to have more than 5 characters');
+        }
+
         $this->title = $title;
 
         return $this;

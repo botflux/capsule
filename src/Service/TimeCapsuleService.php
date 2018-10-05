@@ -87,4 +87,15 @@ class TimeCapsuleService
                 return 'title';
         }
     }
+
+    public function getRandomInviteLink()
+    {
+        return md5(random_bytes(10));
+    }
+
+    public function addCapsule($capsule)
+    {
+        $this->manager->persist($capsule);
+        $this->manager->flush();
+    }
 }
